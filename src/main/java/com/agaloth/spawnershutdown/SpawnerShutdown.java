@@ -19,7 +19,6 @@ import java.util.List;
 public class SpawnerShutdown extends JavaPlugin {
     private static final String INVALID_ENTITY_TYPE = "Invalid entity type: ";
     private HashMap<EntityType, Boolean> blacklistedSpawners = new HashMap<>();
-    private FileConfiguration config;
     private List<String> spawnerBlacklist;
 
     /**
@@ -50,8 +49,7 @@ public class SpawnerShutdown extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
-        config = Bukkit.getPluginManager().getPlugin("SpawnerShutdown").getConfig();
-        spawnerBlacklist = config.getStringList("spawner-blacklist");
+        spawnerBlacklist = getConfig().getStringList("spawner-blacklist");
         updateBlacklist(spawnerBlacklist);
         Bukkit.getServer().getPluginManager().registerEvents(new ChunkListener(this), this);
         ReloadCommand reloadCommand = new ReloadCommand(this);
