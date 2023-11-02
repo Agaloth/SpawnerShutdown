@@ -8,12 +8,14 @@ import net.kyori.adventure.text.minimessage.tag.standard.StandardTags;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ReloadCommand implements CommandExecutor {
+public class ReloadCommand implements CommandExecutor, TabCompleter {
     private SpawnerShutdown plugin;
     ChunkListener chunkListener;
     MiniMessage minimessage;
@@ -75,5 +77,16 @@ public class ReloadCommand implements CommandExecutor {
             default:
                 return false;
         }
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+        List<String> completions = new ArrayList<>();
+
+        if (args.length == 1) {
+            completions.add("reload");
+        }
+
+        return completions;
     }
 }
