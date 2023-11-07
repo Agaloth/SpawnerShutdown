@@ -6,7 +6,7 @@
 
     <groupId>com.agaloth</groupId>
     <artifactId>SpawnerShutdown</artifactId>
-    <version>1.02</version>
+    <version>1.03</version>
     <packaging>jar</packaging>
 
     <name>SpawnerShutdown</name>
