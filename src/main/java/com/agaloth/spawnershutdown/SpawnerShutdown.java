@@ -1,7 +1,6 @@
 package com.agaloth.spawnershutdown;
 
 import com.agaloth.spawnershutdown.commands.ReloadCommand;
-import com.agaloth.spawnershutdown.commands.ReloadTabCompleter;
 import com.agaloth.spawnershutdown.listener.ChunkListener;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -56,9 +55,7 @@ public class SpawnerShutdown extends JavaPlugin {
         Bukkit.getServer().getPluginManager().registerEvents(new ChunkListener(this), this);
         ReloadCommand reloadCommand = new ReloadCommand(this);
         this.getCommand("spawnershutdown").setExecutor(reloadCommand);
-        this.getCommand("spawnershutdown").setTabCompleter(new ReloadTabCompleter());
-        this.getCommand("ssr").setExecutor(new ReloadCommand(this));
-        this.getCommand("ss").setExecutor(new ReloadCommand(this));
+        this.getCommand("spawnershutdown").setTabCompleter(reloadCommand);
 
         displayASCIIArt();
     }

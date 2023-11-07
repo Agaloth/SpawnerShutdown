@@ -6,8 +6,7 @@ authors: [ Agaloth ]
 description: SpawnerShutdown is a plugin that allows you to easily disable specific spawners from spawning mobs, giving you greater control over the mobs in your server.
 commands:
   spawnershutdown:
-  ssr:
-  ss:
+    aliases: [ssr, ss]
 
 permissions:
   spawnershutdown.reload:
